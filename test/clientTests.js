@@ -36,6 +36,18 @@ suite('Client buy pizza tests', function () {
                 assert.equal(false, isSuccess);
             });
         });
+
+        suite('when NOT pay for pizza', function () {
+            test('will NOT get pizza', function () {
+                let client = new ClientBuilder()
+                    .whenOrderPizza(pizzaStub)
+                    .build();
+
+                var isSuccess = client.buyPizza();
+
+                assert.equal(false, isSuccess);
+            });
+        });
     });
 
     suite('when pizza not selected', function () {
