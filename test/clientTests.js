@@ -37,4 +37,14 @@ suite('Client buy pizza tests', function () {
             });
         });
     });
+
+    suite('when pizza not selected', function () {
+        test('will NOT get pizza', function () {
+            let client = new ClientBuilder()
+                .whenPayForPizza(200)
+                .build();
+
+            assert.throws(() => client.buyPizza(), /Pizza not selected/);
+        });
+    });
 });

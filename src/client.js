@@ -7,6 +7,10 @@ export class Client {
     }
 
     buyPizza() {
+        if (this.pizza == null) {
+            throw new Error("Pizza not selected");
+        }
+
         let pizzaPrice = this.pizza.calcPrice();
 
         return this.payAmount >= pizzaPrice;
